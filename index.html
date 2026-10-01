@@ -44,7 +44,11 @@ a{color:var(--kgs-red)}
 }
 .fw-logo{display:flex;align-items:center;height:52px}
 .fw-logo img{height:52px;width:auto;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4))}
-@media(max-width:520px){.fw-logo img{height:40px}}
+.brand .fireworks-lockup{display:flex;align-items:center;gap:12px}
+.brand .fireworks-lockup img{display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));max-width:none}
+.brand .fireworks-lockup .kgs-logo{height:52px;width:auto}
+.brand .fireworks-lockup .fireworks-logo{height:52px;width:auto;max-width:360px}
+@media(max-width:520px){.fw-logo img{height:40px}.brand .fireworks-lockup .kgs-logo,.brand .fireworks-lockup .fireworks-logo{height:40px}}
 .appbar .title{font-size:13px;color:#c9ced2;margin-left:auto;text-align:right}
 .appbar .title strong{color:#fff;font-size:15px;display:block}
 /* ---------- Layout ---------- */
@@ -142,8 +146,10 @@ h3.sec svg{width:18px;height:18px;flex:none;display:block}
 <body>
 <div class="appbar">
   <div class="brand">
-    <div class="kgs-mark">KGS<small>KIDDE GLOBAL SOLUTIONS</small></div>
-    <div class="fw-logo"><img src="assets/KID-22300_KGS-Logo_White.png" alt="KGS Kidde Global Solutions"></div>
+    <div class="fireworks-lockup">
+      <img src="assets/KID-22300_KGS-Logo_White.png" alt="KGS" class="kgs-logo" />
+      <img src="assets/FireworksTextLogo.png" alt="FireWorks" class="fireworks-logo" />
+    </div>
   </div>
   <div class="title"><strong>Order Builder</strong>Guided BOM &bull; v9.31 &amp; prior &bull; myEddie export</div>
 </div>
@@ -179,8 +185,12 @@ h3.sec svg{width:18px;height:18px;flex:none;display:block}
 <script>
   const brand = document.querySelector('.brand');
   if (brand) {
-    const title = brand.querySelector('.title');
-    brand.innerHTML = '<img src="assets/KID-22300_KGS-Logo_White.png" alt="KGS Kidde Global Solutions" style="height:52px;width:auto;display:block;filter:drop-shadow(0 1px 2px rgba(0,0,0,.12));" />' + (title ? title.outerHTML : '');
+    brand.innerHTML = `
+      <div class="fireworks-lockup">
+        <img src="assets/KID-22300_KGS-Logo_White.png" alt="KGS" class="kgs-logo" />
+        <img src="assets/FireworksTextLogo.png" alt="FireWorks" class="fireworks-logo" />
+      </div>
+    `;
   }
 </script>
 
